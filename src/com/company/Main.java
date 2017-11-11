@@ -15,35 +15,42 @@ public class Main {
         while (rund.size() < 4) {
             int r = rand.nextInt(10);
             rund.add(r);
-            System.out.print(rund);
         }
+        System.out.print(rund);
 
-        List<GuessNumbers> userNum = new ArrayList<>();
+        List<Integer> userNum = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
-        GuessNumbers num = new GuessNumbers();
-
-        num.n1 = scanner.nextInt();
-        num.n2 = scanner.nextInt();
-        num.n3 = scanner.nextInt();
-        num.n4 = scanner.nextInt();
-        userNum.add(num);
-
-        for (GuessNumbers n : userNum) {
-            System.out.printf("%d %d %d %d\n", n.n1, n.n2, n.n3, n.n4);
-            System.out.println(userNum.size());
+        //GuessNumbers num = new GuessNumbers();
+        while (userNum.size() < 4) {
+            int n = scanner.nextInt();
+            userNum.add(n);
         }
-        for (int i = 1; i < rund.size(); i++) {
-            for (int j = 1; j < userNum.size(); j++) {
-                if ((rund.get(i).equals(userNum.get(j)) == true)) {
-                    System.out.printf("%n %n", i, j);
-                } else if (!(userNum.get(i).equals(userNum.get(j)))==true) {
-                    System.out.printf("%n %n", i, j);
+        //int n1 = scanner.nextInt();
+        //num.n2 = scanner.nextInt();
+        //num.n3 = scanner.nextInt();
+        //num.n4 = scanner.nextInt();
+        //userNum.add(n);
+
+        //for (GuessNumbers n : userNum) {
+        //  System.out.printf("%d %d %d %d\n", n.n1, n.n2, n.n3, n.n4);
+        // System.out.println(userNum.size());
+        // }
+        for (int i = 0; i < rund.size(); i++) {
+            for (int j = 0; j < userNum.size(); j++) {
+                if (rund.get(i) == (userNum.get(j))) {
+                    if (i == j) {
+                        System.out.printf("Bulls %d %d\n", userNum.get(j), i);
+                    } else if (i != j) {
+                        System.out.printf("Cows %d\n", userNum.get(j));
+
+                    }
+
                 }
             }
-
         }
     }
 }
+
 
 
