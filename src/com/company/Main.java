@@ -36,12 +36,19 @@ public class Main {
         //  System.out.printf("%d %d %d %d\n", n.n1, n.n2, n.n3, n.n4);
         // System.out.println(userNum.size());
         // }
+        int Bulls = 0;
+        int Cows = 0;
         for (int i = 0; i < rund.size(); i++) {
             for (int j = 0; j < userNum.size(); j++) {
                 if (rund.get(i) == (userNum.get(j))) {
                     if (i == j) {
+                        Bulls ++;
                         System.out.printf("Bulls %d %d\n", userNum.get(j), i);
-                    } else if (i != j) {
+                        System.out.println(Bulls);
+
+                    }
+                     if (i != j) {
+                        Cows ++;
                         System.out.printf("Cows %d\n", userNum.get(j));
 
                     }
