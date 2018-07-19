@@ -7,55 +7,50 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+    private static final Scanner scanner = new Scanner(System.in);
+    private static int Bulls;
+    private static int Cows;
 
     public static void main(String[] args) {
+        Random rand = new Random();
 
         ArrayList<Integer> rund = new ArrayList<>();
-        Random rand = new Random();
         while (rund.size() < 4) {
             int r = rand.nextInt(10);
             rund.add(r);
         }
         System.out.print(rund);
 
-        List<Integer> userNum = new ArrayList<>();
+        do {
+            System.out.printf("%n %s %n", "Enter your 4 digits, separetly from 0 to 10");
+            List<Integer> userNum = new ArrayList<>();
+            while (userNum.size() < 4) {
+                int n = scanner.nextInt();
+                userNum.add(n);
+            }
+            int Bulls = 0;
+            int Cows = 0;
 
-        Scanner scanner = new Scanner(System.in);
-        //GuessNumbers num = new GuessNumbers();
-        while (userNum.size() < 4) {
-            int n = scanner.nextInt();
-            userNum.add(n);
-        }
-        //int n1 = scanner.nextInt();
-        //num.n2 = scanner.nextInt();
-        //num.n3 = scanner.nextInt();
-        //num.n4 = scanner.nextInt();
-        //userNum.add(n);
-
-        //for (GuessNumbers n : userNum) {
-        //  System.out.printf("%d %d %d %d\n", n.n1, n.n2, n.n3, n.n4);
-        // System.out.println(userNum.size());
-        // }
-        int Bulls = 0;
-        int Cows = 0;
-        for (int i = 0; i < rund.size(); i++) {
-            for (int j = 0; j < userNum.size(); j++) {
-                if (rund.get(i) == (userNum.get(j))) {
-                    if (i == j) {
-                        Bulls ++;
-                        System.out.printf("Bulls %d %d\n", userNum.get(j), i);
-                        System.out.println(Bulls);
-
+            for (int i = 0; i < rund.size(); i++) {
+                for (int j = 0; j < userNum.size(); j++) {
+                    if (rund.get(i) == (userNum.get(j))) {
+                        if (i == j) {
+                            Bulls++;
+                        } else if (i != j) {
+                            Cows++;
+                        }
                     }
-                     if (i != j) {
-                        Cows ++;
-                        System.out.printf("Cows %d\n", userNum.get(j));
-
-                    }
-
                 }
             }
-        }
+            System.out.printf("Bulls %d\n", Bulls);
+            System.out.printf("Cows %d\n", Cows);
+            if (Bulls == 4) {
+                break;
+            }
+        } while (Bulls != 4);
+        //System.out.println("Good bye");
+        System.out.println("Congratulations! You Won!!!");
+        //System.out.print("Do you want yo play again (y/n) ");
     }
 }
 
