@@ -33,6 +33,8 @@ public class Main {
             int Bulls = 0;
             int Cows = 0;
 
+
+            
             for (int i = 0; i < rund.size(); i++) {
                 for (int j = 0; j < userNum.size(); j++) {
                     if (rund.get(i) == (userNum.get(j))) {
