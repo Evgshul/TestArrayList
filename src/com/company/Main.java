@@ -21,6 +21,8 @@ public class Main {
         }
         System.out.print(rund);
 
+
+        System.out.println();
         do {
             System.out.printf("%n %s %n", "Enter your 4 digits, separetly from 0 to 10");
             List<Integer> userNum = new ArrayList<>();
@@ -43,8 +45,9 @@ public class Main {
                 }
             }
             System.out.printf("Bulls %d\n", Bulls);
-            System.out.printf("Cows %d\n", Cows);
-            if (Bulls == 4) {
+            if (Bulls != 4) {
+                System.out.printf("Cows %d\n", Cows);
+            } else {
                 break;
             }
         } while (Bulls != 4);
